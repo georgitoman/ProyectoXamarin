@@ -1,6 +1,7 @@
 ﻿using ProyectoXamarin.Base;
 using ProyectoXamarin.Models;
 using ProyectoXamarin.Services;
+using ProyectoXamarin.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,6 +23,12 @@ namespace ProyectoXamarin.ViewModels
             {
                 await this.CargarEquiposAsync();
             });
+            MessagingCenter.Subscribe<EquiposViewModel>(this, "RELOAD",
+                async (sender) =>
+                {
+                    await this.CargarEquiposAsync();
+                });
+
         }
 
         private ObservableCollection<Equipo> _Equipos;
@@ -39,6 +46,43 @@ namespace ProyectoXamarin.ViewModels
         {
             List<Equipo> lista = await this.Service.GetEquiposAsync();
             this.Equipos = new ObservableCollection<Equipo>(lista);
+        }
+
+        public Command DetallesEquipo
+        {
+            get
+            {
+                return new Command(async (eq) =>
+                {
+                    Equipo equipo = eq as Equipo;
+                    EquipoViewModel viewmodel =
+                    App.ServiceLocator.EquipoViewModel;
+                    viewmodel.Equipo = equipo;
+                    DetailsEquipoView view =
+                    new DetailsEquipoView();
+                    view.BindingContext = viewmodel;
+                    await Application.Current.MainPage.Navigation
+                    .PushModalAsync(view);
+                });
+            }
+        }
+
+        public Command EditarEquipo
+        {
+            get
+            {
+                return new Command(async (eq) => {
+                    Equipo equipo = eq as Equipo;
+                    EquipoViewModel viewmodel =
+                    App.ServiceLocator.EquipoViewModel;
+                    viewmodel.Equipo = equipo;
+                    UpdateEquipoView view =
+                    new UpdateEquipoView();
+                    view.BindingContext = viewmodel;
+                    await Application.Current.MainPage.Navigation
+                    .PushModalAsync(view);
+                });
+            }
         }
     }
 }

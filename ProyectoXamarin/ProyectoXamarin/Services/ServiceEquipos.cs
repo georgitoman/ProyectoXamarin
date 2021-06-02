@@ -243,7 +243,7 @@ namespace ProyectoXamarin.Services
                 p.Equipo2 = equipo2;
                 p.ResultadoEquipo1 = resultado1;
                 p.ResultadoEquipo2 = resultado2;
-                p.fecha = fecha;
+                p.Fecha = fecha;
                 String json = JsonConvert.SerializeObject(p);
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
                 await client.PostAsync(request, content);
@@ -263,7 +263,7 @@ namespace ProyectoXamarin.Services
                 p.Equipo2 = equipo2;
                 p.ResultadoEquipo1 = resultado1;
                 p.ResultadoEquipo2 = resultado2;
-                p.fecha = fecha;
+                p.Fecha = fecha;
                 String json = JsonConvert.SerializeObject(p);
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
                 await client.PutAsync(request, content);

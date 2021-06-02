@@ -19,6 +19,6 @@ namespace ProyectoXamarin.Models
         [JsonProperty("resultadoEquipo2")]
         public int ResultadoEquipo2 { get; set; }
         [JsonProperty("fecha")]
-        public String fecha { get; set; }
+        public String Fecha { get; set; }
     }
 }

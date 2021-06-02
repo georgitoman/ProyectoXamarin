@@ -1,11 +1,13 @@
 ﻿using ProyectoXamarin.Base;
 using ProyectoXamarin.Models;
 using ProyectoXamarin.Services;
+using ProyectoXamarin.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace ProyectoXamarin.ViewModels
 {
@@ -21,6 +23,11 @@ namespace ProyectoXamarin.ViewModels
             {
                 await this.CargarLigasAsync();
             });
+            MessagingCenter.Subscribe<LigasViewModel>(this, "RELOAD",
+                async (sender) =>
+                {
+                    await this.CargarLigasAsync();
+                });
         }
 
         private ObservableCollection<Liga> _Ligas;
@@ -38,6 +45,43 @@ namespace ProyectoXamarin.ViewModels
         {
             List<Liga> lista = await this.Service.GetLigasAsync();
             this.Ligas = new ObservableCollection<Liga>(lista);
+        }
+
+        public Command DetallesLiga
+        {
+            get
+            {
+                return new Command(async (lig) =>
+                {
+                    Liga liga = lig as Liga;
+                    LigaViewModel viewmodel =
+                    App.ServiceLocator.LigaViewModel;
+                    viewmodel.Liga = liga;
+                    DetailsLigaView view =
+                    new DetailsLigaView();
+                    view.BindingContext = viewmodel;
+                    await Application.Current.MainPage.Navigation
+                    .PushModalAsync(view);
+                });
+            }
+        }
+
+        public Command EditarLiga
+        {
+            get
+            {
+                return new Command(async (lig) => {
+                    Liga liga = lig as Liga;
+                    LigaViewModel viewmodel =
+                    App.ServiceLocator.LigaViewModel;
+                    viewmodel.Liga = liga;
+                    UpdateLigaView view =
+                    new UpdateLigaView();
+                    view.BindingContext = viewmodel;
+                    await Application.Current.MainPage.Navigation
+                    .PushModalAsync(view);
+                });
+            }
         }
     }
 }

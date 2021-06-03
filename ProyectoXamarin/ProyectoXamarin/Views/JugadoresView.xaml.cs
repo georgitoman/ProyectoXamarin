@@ -15,6 +15,14 @@ namespace ProyectoXamarin.Views
         public JugadoresView()
         {
             InitializeComponent();
+            this.listviewjugadores.ItemSelected += ListViewJugadores_ItemSelected;
+        }
+
+        private void ListViewJugadores_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem == null) return;
+
+            if (sender is ListView lv) lv.SelectedItem = null;
         }
     }
 }

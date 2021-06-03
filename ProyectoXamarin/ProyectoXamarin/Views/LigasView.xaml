@@ -11,7 +11,8 @@
             <Label Text="Ligas" FontSize="40"
                 VerticalOptions="Start" 
                 HorizontalOptions="CenterAndExpand" />
-            <ListView ItemsSource="{Binding Ligas}">
+            <ListView ItemsSource="{Binding Ligas}"
+                      x:Name="listviewligas">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

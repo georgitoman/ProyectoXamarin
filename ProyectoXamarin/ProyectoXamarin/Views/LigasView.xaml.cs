@@ -15,6 +15,14 @@ namespace ProyectoXamarin.Views
         public LigasView()
         {
             InitializeComponent();
+            this.listviewligas.ItemSelected += ListViewLigas_ItemSelected;
+        }
+
+        private void ListViewLigas_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem == null) return;
+
+            if (sender is ListView lv) lv.SelectedItem = null;
         }
     }
 }

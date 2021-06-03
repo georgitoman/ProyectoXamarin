@@ -11,7 +11,8 @@
             <Label Text="Partidos" FontSize="40"
                 VerticalOptions="Start" 
                 HorizontalOptions="CenterAndExpand" />
-            <ListView ItemsSource="{Binding Partidos}" RowHeight="100" >
+            <ListView ItemsSource="{Binding Partidos}"
+                      RowHeight="100" x:Name="listviewpartidos">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

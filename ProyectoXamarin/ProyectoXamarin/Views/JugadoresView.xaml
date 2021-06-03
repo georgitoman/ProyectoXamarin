@@ -11,7 +11,8 @@
             <Label Text="Jugadores" FontSize="40"
                 VerticalOptions="Start" 
                 HorizontalOptions="CenterAndExpand" />
-            <ListView ItemsSource="{Binding Jugadores}">
+            <ListView ItemsSource="{Binding Jugadores}"
+                      x:Name="listviewjugadores">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

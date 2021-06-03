@@ -16,7 +16,13 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding Nombre}" FontSize="25" TextColor="Black" />
+                                
+                                    <Button Text="{Binding Nombre}"
+                                            CommandParameter="{Binding .}"
+                                            Command="{Binding DetallesLiga}"
+                                            HorizontalOptions="CenterAndExpand"
+                                            />
+                                
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

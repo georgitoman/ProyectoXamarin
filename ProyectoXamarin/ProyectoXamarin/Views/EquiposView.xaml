@@ -11,13 +11,26 @@
             <Label Text="Equipos" FontSize="40"
                 VerticalOptions="Start" 
                 HorizontalOptions="CenterAndExpand" />
-            <ListView ItemsSource="{Binding Equipos}">
+            <ListView ItemsSource="{Binding Equipos}"
+                      x:Name="listviewequipo"
+                      HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding Nombre}" FontSize="25" TextColor="Black" />
-                            </StackLayout>
+                            
+                                <StackLayout Orientation="Vertical" Padding="10">
+                                    <!--<Label Text="Prueba"
+                                           Grid.Column="0"
+                                           Grid.Row="0"/>-->
+                                    <Image Source="{Binding Foto}" 
+                                           HeightRequest="150"
+                                           WidthRequest="150"/>
+                                    <Button Text="{Binding Nombre}"
+                                            CommandParameter="{Binding .}"
+                                            Command="{Binding DetallesEquipo}"
+                                            />
+                                </StackLayout>
+                            
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

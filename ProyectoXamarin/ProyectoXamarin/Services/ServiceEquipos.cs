@@ -2,6 +2,7 @@
 using ProyectoXamarin.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -46,7 +47,8 @@ namespace ProyectoXamarin.Services
         public async Task<List<Jugador>> GetJugadoresAsync()
         {
             String request = "/api/Jugador";
-            return await this.CallApi<List<Jugador>>(request);
+            List<Jugador> Jugadores= await this.CallApi<List<Jugador>>(request);
+            return Jugadores.Where(x => x.IdJugador > 0).ToList();
         }
         public async Task<Jugador> BuscarJugadorAsync(int id)
         {
@@ -142,7 +144,8 @@ namespace ProyectoXamarin.Services
         public async Task<List<Equipo>> GetEquiposAsync()
         {
             String request = "/api/Equipo";
-            return await this.CallApi<List<Equipo>>(request);
+            List<Equipo> equipos= await this.CallApi<List<Equipo>>(request);
+            return equipos.Where(x => x.IdEquipo > 0).ToList();
         }
         public async Task<Equipo> BuscarEquipoAsync(int id)
         {
@@ -236,7 +239,8 @@ namespace ProyectoXamarin.Services
         public async Task<List<Liga>> GetLigasAsync()
         {
             String request = "/api/Liga";
-            return await this.CallApi<List<Liga>>(request);
+            List<Liga> ligas= await this.CallApi<List<Liga>>(request);
+            return ligas.Where(x => x.IdLiga > 0).ToList();
         }
         public async Task<Liga> BuscarLigaAsync(int id)
         {

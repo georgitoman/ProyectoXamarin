@@ -4,9 +4,10 @@
              x:Class="ProyectoXamarin.Views.DetailsEquipoView">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+            <Label Text="{Binding Nombre}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+            <Image Source="{}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

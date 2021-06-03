@@ -11,31 +11,43 @@
             <Label Text="Partidos" FontSize="40"
                 VerticalOptions="Start" 
                 HorizontalOptions="CenterAndExpand" />
-            <ListView ItemsSource="{Binding Partidos}" RowHeight="100">
+            <ListView ItemsSource="{Binding Partidos}" RowHeight="100" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                                 <StackLayout Orientation="Vertical"
-                                             HorizontalOptions="Start">
+                                             HorizontalOptions="Start"
+                                             Grid.Row="0">
                                     <Label Text="{Binding Equipo1}" 
-                                       FontSize="35" 
+                                       FontSize="Medium" 
                                        TextColor="Black"
                                        />
-                                    <Label Text="{Binding ResultadoEquipo1}" FontSize="25"/>
+                                    <Label Text="{Binding ResultadoEquipo1}" FontSize="25"
+                                           HorizontalOptions="Center"/>
                                 </StackLayout>
                                 <Label Text=" VS " 
                                        HorizontalOptions="Center"
-                                       VerticalOptions="Center"/>
+                                       VerticalOptions="Center"
+                                       Grid.Row="1"/>
                                 <StackLayout Orientation="Vertical"
-                                             HorizontalOptions="End">
+                                             HorizontalOptions="End"
+                                             Grid.Row="2">
                                     <Label Text="{Binding Equipo2}" 
-                                       FontSize="35" 
+                                       FontSize="Medium" 
                                        TextColor="Black"
                                        />
-                                    <Label Text="{Binding ResultadoEquipo2}" FontSize="25"/>
+                                    <Label Text="{Binding ResultadoEquipo2}" FontSize="25"
+                                           HorizontalOptions="Center"/>
                                 </StackLayout>
                             </StackLayout>
+                            </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

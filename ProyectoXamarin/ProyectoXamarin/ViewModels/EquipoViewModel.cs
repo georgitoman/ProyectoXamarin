@@ -33,43 +33,5 @@ namespace ProyectoXamarin.ViewModels
             }
         }
 
-        public Command EliminarEquipo
-        {
-            get
-            {
-                return new Command(async () => {
-                    await
-                    this.Service.EliminarEquipoAsync(this.Equipo.IdEquipo);
-                    MessagingCenter.Send(App.ServiceLocator.EquiposViewModel, "RELOAD");
-                    await Application.Current.MainPage.Navigation.PopModalAsync();
-                });
-            }
-        }
-
-        public Command ModificarEquipo
-        {
-            get
-            {
-                return new Command(async () => {
-                    await this.Service.ModificarEquipo(this.Equipo.IdEquipo,
-                        this.Equipo.Nombre, this.Equipo.Liga, this.Equipo.Foto);
-                    MessagingCenter.Send(App.ServiceLocator.EquiposViewModel, "RELOAD");
-                    await Application.Current.MainPage.Navigation.PopModalAsync();
-                });
-            }
-        }
-
-        public Command InsertarEquipo
-        {
-            get
-            {
-                return new Command(async () => {
-                    await this.Service.InsertarEquipo(this.Equipo.Nombre, this.Equipo.Liga, this.Equipo.Foto);
-                    MessagingCenter.Send(App.ServiceLocator.EquiposViewModel, "RELOAD");
-                    await Application.Current.MainPage.DisplayAlert("Alert", "Equipo insertado", "OK");
-                });
-            }
-        }
-
     }
 }

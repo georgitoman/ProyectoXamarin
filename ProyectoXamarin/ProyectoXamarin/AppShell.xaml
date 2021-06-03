@@ -30,10 +30,10 @@
     </Shell.Resources>
 
     <TabBar>
-        <ShellContent Title="Ligas" Route="LigasView" ContentTemplate="{DataTemplate local:LigasView}" />
-        <ShellContent Title="Equipos" Route="EquiposView" ContentTemplate="{DataTemplate local:EquiposView}" />
-        <ShellContent Title="Jugadores" Route="JugadoresView" ContentTemplate="{DataTemplate local:JugadoresView}" />
-        <ShellContent Title="Partidos" Route="PartidosView" ContentTemplate="{DataTemplate local:PartidosView}" />
+        <ShellContent Title="Ligas" Route="LigasView" ContentTemplate="{DataTemplate local:LigasView}" Icon="liga.png" />
+        <ShellContent Title="Equipos" Route="EquiposView" ContentTemplate="{DataTemplate local:EquiposView}" Icon="equipo.png" />
+        <ShellContent Title="Jugadores" Route="JugadoresView" ContentTemplate="{DataTemplate local:JugadoresView}" Icon="jugador.png" />
+        <ShellContent Title="Partidos" Route="PartidosView" ContentTemplate="{DataTemplate local:PartidosView}" Icon="partido.png" />
     </TabBar>
 
 

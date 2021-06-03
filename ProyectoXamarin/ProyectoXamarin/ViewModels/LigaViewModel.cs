@@ -32,46 +32,5 @@ namespace ProyectoXamarin.ViewModels
                 OnPropertyChanged("Liga");
             }
         }
-
-        public Command EliminarLiga
-        {
-            get
-            {
-                return new Command(async () =>
-                {
-                    await
-                    this.Service.EliminarLigaAsync(this.Liga.IdLiga);
-                    MessagingCenter.Send(App.ServiceLocator.LigasViewModel, "RELOAD");
-                    await Application.Current.MainPage.Navigation.PopModalAsync();
-                });
-            }
-        }
-
-        public Command ModificarLiga
-        {
-            get
-            {
-                return new Command(async () =>
-                {
-                    await this.Service.ModificarLigaAsync(this.Liga.IdLiga,
-                        this.Liga.Nombre, this.Liga.Descripcion);
-                    MessagingCenter.Send(App.ServiceLocator.LigasViewModel, "RELOAD");
-                    await Application.Current.MainPage.Navigation.PopModalAsync();
-                });
-            }
-        }
-
-        public Command InsertarLiga
-        {
-            get
-            {
-                return new Command(async () =>
-                {
-                    await this.Service.InsertarLigaAsync(this.Liga.Nombre, this.Liga.Descripcion);
-                    MessagingCenter.Send(App.ServiceLocator.LigasViewModel, "RELOAD");
-                    await Application.Current.MainPage.DisplayAlert("Alert", "Liga insertada", "OK");
-                });
-            }
-        }
     }
 }

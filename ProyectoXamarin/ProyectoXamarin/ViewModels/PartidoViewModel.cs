@@ -32,34 +32,5 @@ namespace ProyectoXamarin.ViewModels
                 OnPropertyChanged("Partido");
             }
         }
-
-        public Command ModificarPartido
-        {
-            get
-            {
-                return new Command(async () =>
-                {
-                    await this.Service.ModificarPartidos(this.Partido.Id, this.Partido.Equipo1,
-                        this.Partido.Equipo2, this.Partido.ResultadoEquipo1, this.Partido.ResultadoEquipo2,
-                        this.Partido.Fecha);
-                    MessagingCenter.Send(App.ServiceLocator.PartidosViewModel, "RELOAD");
-                    await Application.Current.MainPage.Navigation.PopModalAsync();
-                });
-            }
-        }
-
-        public Command InsertarPartido
-        {
-            get
-            {
-                return new Command(async () =>
-                {
-                    await this.Service.InsertarPartidos(this.Partido.Equipo1, this.Partido.Equipo2,
-                        this.Partido.ResultadoEquipo1, this.Partido.ResultadoEquipo2, this.Partido.Fecha);
-                    MessagingCenter.Send(App.ServiceLocator.PartidosViewModel, "RELOAD");
-                    await Application.Current.MainPage.DisplayAlert("Alert", "Partido insertado", "OK");
-                });
-            }
-        }
     }
 }

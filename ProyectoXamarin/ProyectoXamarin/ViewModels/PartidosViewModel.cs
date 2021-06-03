@@ -65,23 +65,5 @@ namespace ProyectoXamarin.ViewModels
                 });
             }
         }
-
-        public Command EditarPartido
-        {
-            get
-            {
-                return new Command(async (par) => {
-                    Partidos partido = par as Partidos;
-                    PartidoViewModel viewmodel =
-                    App.ServiceLocator.PartidoViewModel;
-                    viewmodel.Partido = partido;
-                    UpdatePartidoView view =
-                    new UpdatePartidoView();
-                    view.BindingContext = viewmodel;
-                    await Application.Current.MainPage.Navigation
-                    .PushModalAsync(view);
-                });
-            }
-        }
     }
 }

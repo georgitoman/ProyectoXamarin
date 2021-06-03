@@ -11,12 +11,30 @@
             <Label Text="Partidos" FontSize="40"
                 VerticalOptions="Start" 
                 HorizontalOptions="CenterAndExpand" />
-            <ListView ItemsSource="{Binding Partidos}">
+            <ListView ItemsSource="{Binding Partidos}" RowHeight="100">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding Nombre}" FontSize="25" TextColor="Black" />
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                <StackLayout Orientation="Vertical"
+                                             HorizontalOptions="Start">
+                                    <Label Text="{Binding Equipo1}" 
+                                       FontSize="35" 
+                                       TextColor="Black"
+                                       />
+                                    <Label Text="{Binding ResultadoEquipo1}" FontSize="25"/>
+                                </StackLayout>
+                                <Label Text=" VS " 
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
+                                <StackLayout Orientation="Vertical"
+                                             HorizontalOptions="End">
+                                    <Label Text="{Binding Equipo2}" 
+                                       FontSize="35" 
+                                       TextColor="Black"
+                                       />
+                                    <Label Text="{Binding ResultadoEquipo2}" FontSize="25"/>
+                                </StackLayout>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

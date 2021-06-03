@@ -66,23 +66,5 @@ namespace ProyectoXamarin.ViewModels
                 });
             }
         }
-
-        public Command EditarEquipo
-        {
-            get
-            {
-                return new Command(async (eq) => {
-                    Equipo equipo = eq as Equipo;
-                    EquipoViewModel viewmodel =
-                    App.ServiceLocator.EquipoViewModel;
-                    viewmodel.Equipo = equipo;
-                    UpdateEquipoView view =
-                    new UpdateEquipoView();
-                    view.BindingContext = viewmodel;
-                    await Application.Current.MainPage.Navigation
-                    .PushModalAsync(view);
-                });
-            }
-        }
     }
 }

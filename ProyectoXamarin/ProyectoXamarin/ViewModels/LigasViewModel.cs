@@ -65,23 +65,5 @@ namespace ProyectoXamarin.ViewModels
                 });
             }
         }
-
-        public Command EditarLiga
-        {
-            get
-            {
-                return new Command(async (lig) => {
-                    Liga liga = lig as Liga;
-                    LigaViewModel viewmodel =
-                    App.ServiceLocator.LigaViewModel;
-                    viewmodel.Liga = liga;
-                    UpdateLigaView view =
-                    new UpdateLigaView();
-                    view.BindingContext = viewmodel;
-                    await Application.Current.MainPage.Navigation
-                    .PushModalAsync(view);
-                });
-            }
-        }
     }
 }

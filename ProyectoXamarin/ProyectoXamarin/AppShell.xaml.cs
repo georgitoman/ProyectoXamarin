@@ -15,7 +15,6 @@ namespace ProyectoXamarin
             Routing.RegisterRoute(nameof(EquiposView), typeof(EquiposView));
             Routing.RegisterRoute(nameof(JugadoresView), typeof(JugadoresView));
             Routing.RegisterRoute(nameof(PartidosView), typeof(PartidosView));
-            Routing.RegisterRoute(nameof(PostsView), typeof(PostsView));
         }
 
     }

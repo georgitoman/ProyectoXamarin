@@ -23,12 +23,10 @@ namespace ProyectoXamarin.Services
             builder.RegisterType<JugadoresViewModel>();
             builder.RegisterType<LigasViewModel>();
             builder.RegisterType<PartidosViewModel>();
-            builder.RegisterType<PostsViewModel>();
             builder.RegisterType<EquipoViewModel>();
             builder.RegisterType<JugadorViewModel>();
             builder.RegisterType<LigaViewModel>();
             builder.RegisterType<PartidoViewModel>();
-            builder.RegisterType<PostViewModel>();
             this.container = builder.Build();
         }
 
@@ -64,14 +62,6 @@ namespace ProyectoXamarin.Services
             }
         }
 
-        public PostViewModel PostViewModel
-        {
-            get
-            {
-                return this.container.Resolve<PostViewModel>();
-            }
-        }
-
         public EquiposViewModel EquiposViewModel
         {
             get
@@ -101,14 +91,6 @@ namespace ProyectoXamarin.Services
             get
             {
                 return this.container.Resolve<PartidosViewModel>();
-            }
-        }
-
-        public PostsViewModel PostsViewModel
-        {
-            get
-            {
-                return this.container.Resolve<PostsViewModel>();
             }
         }
     }

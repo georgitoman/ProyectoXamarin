@@ -32,47 +32,5 @@ namespace ProyectoXamarin.ViewModels
                 OnPropertyChanged("Jugador");
             }
         }
-
-        public Command EliminarJugador
-        {
-            get
-            {
-                return new Command(async () => {
-                    await
-                    this.Service.EliminarJugador(this.Jugador.IdJugador);
-                    MessagingCenter.Send(App.ServiceLocator.JugadoresViewModel, "RELOAD");
-                    await Application.Current.MainPage.Navigation.PopModalAsync();
-                });
-            }
-        }
-
-        public Command ModificarJugador
-        {
-            get
-            {
-                return new Command(async () => {
-                    await this.Service.ModificarJugador(this.Jugador.IdJugador,
-                        this.Jugador.Nombre, this.Jugador.Nick, this.Jugador.IdEquipo,
-                        this.Jugador.Correo, this.Jugador.Password, this.Jugador.Foto);
-                    MessagingCenter.Send(App.ServiceLocator.JugadoresViewModel, "RELOAD");
-                    await Application.Current.MainPage.Navigation.PopModalAsync();
-                });
-            }
-        }
-
-        public Command InsertarJugador
-        {
-            get
-            {
-                return new Command(async () => {
-                    await this.Service.InsertarJugador(this.Jugador.Nombre,
-                        this.Jugador.Nick, this.Jugador.IdEquipo, this.Jugador.Correo,
-                        this.Jugador.Password, this.Jugador.Foto);
-                    MessagingCenter.Send(App.ServiceLocator.JugadoresViewModel, "RELOAD");
-                    await Application.Current.MainPage.DisplayAlert("Alert", "Jugador insertado", "OK");
-                });
-            }
-        }
-
     }
 }

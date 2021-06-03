@@ -11,9 +11,9 @@ namespace ProyectoXamarin.Models
         [JsonProperty("id")]
         public int Id { get; set; }
         [JsonProperty("equipo1")]
-        public int Equipo1 { get; set; }
+        public String Equipo1 { get; set; }
         [JsonProperty("equipo2")]
-        public int Equipo2 { get; set; }
+        public String Equipo2 { get; set; }
         [JsonProperty("resultadoEquipo1")]
         public int ResultadoEquipo1 { get; set; }
         [JsonProperty("resultadoEquipo2")]

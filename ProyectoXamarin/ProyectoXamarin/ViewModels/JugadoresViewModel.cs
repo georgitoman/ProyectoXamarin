@@ -65,23 +65,5 @@ namespace ProyectoXamarin.ViewModels
                 });
             }
         }
-
-        public Command EditarJugador
-        {
-            get
-            {
-                return new Command(async (jug) => {
-                    Jugador jugador = jug as Jugador;
-                    JugadorViewModel viewmodel =
-                    App.ServiceLocator.JugadorViewModel;
-                    viewmodel.Jugador = jugador;
-                    UpdateJugadorView view =
-                    new UpdateJugadorView();
-                    view.BindingContext = viewmodel;
-                    await Application.Current.MainPage.Navigation
-                    .PushModalAsync(view);
-                });
-            }
-        }
     }
 }

@@ -16,7 +16,7 @@ namespace ProyectoXamarin.Services
 
         public ServiceEquipos()
         {
-            this.Uriapi = new Uri("");
+            this.Uriapi = new Uri("https://apiproyectoxamarin.azurewebsites.net");
             this.header = new MediaTypeWithQualityHeaderValue("application/json");
         }
 
@@ -210,12 +210,12 @@ namespace ProyectoXamarin.Services
 
         public async Task<List<Partidos>> GetPartidosAsync()
         {
-            String request = "/api/Partidos";
+            String request = "/api/PartidosNombre";
             return await this.CallApi<List<Partidos>>(request);
         }
         public async Task<Partidos> BuscarPartidosAsync(int id)
         {
-            String request = "/api/Partidos/" + id;
+            String request = "/api/PartidosNombre/" + id;
             return await this.CallApi<Partidos>(request);
         }
         public async Task<List<Partidos>> PaginarPartidosAsync(int pagina)
@@ -229,46 +229,6 @@ namespace ProyectoXamarin.Services
             return await this.CallApi<List<Partidos>>(request);
         }
 
-        public async Task InsertarPartidos(int equipo1, int equipo2, int resultado1, int resultado2, String fecha)
-        {
-            using (HttpClient client = new HttpClient())
-            {
-                String request = "/api/Partidos";
-                client.BaseAddress = this.Uriapi;
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(this.header);
-                Partidos p = new Partidos();
-                p.Id = 0;
-                p.Equipo1 = equipo1;
-                p.Equipo2 = equipo2;
-                p.ResultadoEquipo1 = resultado1;
-                p.ResultadoEquipo2 = resultado2;
-                p.Fecha = fecha;
-                String json = JsonConvert.SerializeObject(p);
-                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
-                await client.PostAsync(request, content);
-            }
-        }
-        public async Task ModificarPartidos(int id, int equipo1, int equipo2, int resultado1, int resultado2, String fecha)
-        {
-            using (HttpClient client = new HttpClient())
-            {
-                String request = "/api/Partidos";
-                client.BaseAddress = this.Uriapi;
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(this.header);
-                Partidos p = new Partidos();
-                p.Id = id;
-                p.Equipo1 = equipo1;
-                p.Equipo2 = equipo2;
-                p.ResultadoEquipo1 = resultado1;
-                p.ResultadoEquipo2 = resultado2;
-                p.Fecha = fecha;
-                String json = JsonConvert.SerializeObject(p);
-                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
-                await client.PutAsync(request, content);
-            }
-        }
         #endregion
 
 
@@ -341,62 +301,5 @@ namespace ProyectoXamarin.Services
         }
 
         #endregion
-
-
-        #region Posts
-
-        public async Task<List<Posts>> GetPostsAsync()
-        {
-            String request = "/api/Posts";
-            return await this.CallApi<List<Posts>>(request);
-        }
-
-        public async Task InsertarPost(String nombre, String descripcion)
-        {
-            using (HttpClient client = new HttpClient())
-            {
-                String request = "/api/Liga";
-                client.BaseAddress = this.Uriapi;
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(this.header);
-                Liga lig = new Liga();
-                lig.IdLiga = 0;
-                lig.Nombre = nombre;
-                lig.Descripcion = descripcion;
-                String json = JsonConvert.SerializeObject(lig);
-                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
-                await client.PostAsync(request, content);
-            }
-        }
-        public async Task ModificarPost(int id, String nombre, String descripcion)
-        {
-            using (HttpClient client = new HttpClient())
-            {
-                String request = "/api/Liga";
-                client.BaseAddress = this.Uriapi;
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(this.header);
-                Liga lig = new Liga();
-                lig.IdLiga = id;
-                lig.Nombre = nombre;
-                lig.Descripcion = descripcion;
-                String json = JsonConvert.SerializeObject(lig);
-                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
-                await client.PutAsync(request, content);
-            }
-        }
-        public async Task EliminarPost(int id)
-        {
-            using (HttpClient client = new HttpClient())
-            {
-                String request = "/api/Liga/" + id;
-                client.BaseAddress = this.Uriapi;
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(this.header);
-                await client.DeleteAsync(request);
-            }
-        }
-        #endregion
-
     }
 }

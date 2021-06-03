@@ -4,11 +4,31 @@
              x:Class="ProyectoXamarin.Views.DetailsJugadorView">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{Binding Jugador.Nick}"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Image Source="{Binding Jugador.Foto}" WidthRequest="150"
-                   HeightRequest="150"/>
+            <BoxView BackgroundColor="CadetBlue" HeightRequest="8"/>
+            <StackLayout BackgroundColor="LightSkyBlue">
+                <Label Text="{Binding Jugador.Nombre, StringFormat='Nombre: {0}'}"
+                   FontSize="25" TextColor="Black"
+                   HorizontalOptions="CenterAndExpand" />
+                <BoxView BackgroundColor="CadetBlue" HeightRequest="8"/>
+            </StackLayout>
+            <StackLayout BackgroundColor="LightSkyBlue">
+                <Label Text="{Binding Jugador.Nick, StringFormat='Nick: {0}'}"
+                   FontSize="25" TextColor="Black"
+                   HorizontalOptions="CenterAndExpand" />
+                <BoxView BackgroundColor="CadetBlue" HeightRequest="8"/>
+            </StackLayout>
+            <StackLayout BackgroundColor="LightSkyBlue">
+                <Label Text="{Binding Jugador.Funcion, StringFormat='Funcion: {0}'}"
+                   FontSize="25" TextColor="Black"
+                   HorizontalOptions="CenterAndExpand" />
+                <BoxView BackgroundColor="CadetBlue" HeightRequest="8"/>
+            </StackLayout>
+            <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand">
+                <Image Source="{Binding Jugador.Foto}"
+                   HeightRequest="400" VerticalOptions="CenterAndExpand"/>
+            </StackLayout>
+            <BoxView BackgroundColor="CadetBlue" HeightRequest="8"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

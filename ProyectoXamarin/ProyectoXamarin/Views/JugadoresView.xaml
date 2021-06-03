@@ -109,7 +109,14 @@
                                             </StackLayout>
                                         </StackLayout>
                                         <StackLayout>
-                                            
+                                            <Button Text="Detalles" CommandParameter="{Binding .}"
+                                                    Command="{Binding BindingContext.DetallesJugador,
+                                                Source={x:Reference PageJugadoresView}}" />
+                                        </StackLayout>
+                                        <StackLayout>
+                                            <Button Text="Equipo" CommandParameter="{Binding .}"
+                                                    Command="{Binding DetallesEquipo,
+                                                Source={x:Reference PageJugadoresView}}" />
                                         </StackLayout>
                                     </StackLayout>
                                 </StackLayout>

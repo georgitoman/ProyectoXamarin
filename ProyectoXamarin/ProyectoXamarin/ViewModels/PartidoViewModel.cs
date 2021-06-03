@@ -1,21 +1,13 @@
 ﻿using ProyectoXamarin.Base;
 using ProyectoXamarin.Models;
-using ProyectoXamarin.Services;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Xamarin.Forms;
 
 namespace ProyectoXamarin.ViewModels
 {
     public class PartidoViewModel : ViewModelBase
     {
-        private ServiceEquipos Service;
 
-        public PartidoViewModel(ServiceEquipos service)
+        public PartidoViewModel()
         {
-            this.Service = service;
-
             if (this.Partido == null)
             {
                 this.Partido = new Partidos();

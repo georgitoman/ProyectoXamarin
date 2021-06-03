@@ -1,8 +1,5 @@
 ﻿using Autofac;
 using ProyectoXamarin.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ProyectoXamarin.Services
 {

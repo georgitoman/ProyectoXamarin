@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ProyectoXamarin.Models;
+using ProyectoXamarin.ViewModels;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -23,6 +20,22 @@ namespace ProyectoXamarin.Views
             if (e.SelectedItem == null) return;
 
             if (sender is ListView lv) lv.SelectedItem = null;
+        }
+
+        public Command DetallesLiga
+        {
+            get
+            {
+                return new Command(async (lig) =>
+                {
+                    Liga liga = lig as Liga;
+                    LigaViewModel viewmodel = App.ServiceLocator.LigaViewModel;
+                    viewmodel.Liga = liga;
+                    DetailsLigaView view = new DetailsLigaView();
+                    view.BindingContext = viewmodel;
+                    await Application.Current.MainPage.Navigation.PushModalAsync(view);
+                });
+            }
         }
     }
 }

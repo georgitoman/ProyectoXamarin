@@ -2,16 +2,14 @@
 using ProyectoXamarin.Models;
 using ProyectoXamarin.Services;
 using ProyectoXamarin.Views;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace ProyectoXamarin.ViewModels
 {
-    public class EquiposViewModel: ViewModelBase
+    public class EquiposViewModel : ViewModelBase
     {
         private ServiceEquipos Service;
 
@@ -23,12 +21,6 @@ namespace ProyectoXamarin.ViewModels
             {
                 await this.CargarEquiposAsync();
             });
-            MessagingCenter.Subscribe<EquiposViewModel>(this, "RELOAD",
-                async (sender) =>
-                {
-                    await this.CargarEquiposAsync();
-                });
-
         }
 
         private ObservableCollection<Equipo> _Equipos;

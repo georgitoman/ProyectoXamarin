@@ -73,24 +73,6 @@
             <Label Text="Jugadores" FontSize="40"
                 VerticalOptions="Start" 
                 HorizontalOptions="CenterAndExpand" />
-            <!--<ListView ItemsSource="{Binding Jugadores}"
-                      x:Name="listviewjugadores">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Orientation="Horizontal">
-                                
-                                    <Button Text="{Binding Nombre}"
-                                            CommandParameter="{Binding .}"
-                                            Command="{Binding BindingContext.DetallesJugador,Source={x:Reference PageJugadoresView}}"
-                                            HorizontalOptions="CenterAndExpand"
-                                            />
-                               
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>-->
             <CollectionView x:Name="collectionviewjugadores" ItemsSource="{Binding Jugadores}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>

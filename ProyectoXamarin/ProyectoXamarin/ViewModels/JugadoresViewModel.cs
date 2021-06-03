@@ -2,16 +2,14 @@
 using ProyectoXamarin.Models;
 using ProyectoXamarin.Services;
 using ProyectoXamarin.Views;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace ProyectoXamarin.ViewModels
 {
-    public class JugadoresViewModel:ViewModelBase
+    public class JugadoresViewModel : ViewModelBase
     {
         private ServiceEquipos Service;
 

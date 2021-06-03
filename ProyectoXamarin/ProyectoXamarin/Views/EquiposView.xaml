@@ -27,7 +27,7 @@
                                            WidthRequest="150"/>
                                     <Button Text="{Binding Nombre}"
                                             CommandParameter="{Binding .}"
-                                            Command="{Binding DetallesEquipo}"
+                                            Command="{Binding BindingContext.DetallesEquipo,Source={x:Reference PageEquiposView}}"
                                             />
                                 </StackLayout>
                             

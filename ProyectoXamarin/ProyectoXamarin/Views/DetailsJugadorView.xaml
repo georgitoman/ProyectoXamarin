@@ -4,9 +4,11 @@
              x:Class="ProyectoXamarin.Views.DetailsJugadorView">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+            <Label Text="{Binding Jugador.Nick}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+            <Image Source="{Binding Jugador.Foto}" WidthRequest="150"
+                   HeightRequest="150"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

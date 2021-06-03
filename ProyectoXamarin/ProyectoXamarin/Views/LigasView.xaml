@@ -19,7 +19,7 @@
                                 
                                     <Button Text="{Binding Nombre}"
                                             CommandParameter="{Binding .}"
-                                            Command="{Binding DetallesLiga}"
+                                            Command="{Binding BindingContext.DetallesLiga,Source={x:Reference PageLigasView}}"
                                             HorizontalOptions="CenterAndExpand"
                                             />
                                 

@@ -19,7 +19,7 @@
                                 
                                     <Button Text="{Binding Nombre}"
                                             CommandParameter="{Binding .}"
-                                            Command="{Binding DetallesJugador}"
+                                            Command="{Binding BindingContext.DetallesJugador,Source={x:Reference PageJugadoresView}}"
                                             HorizontalOptions="CenterAndExpand"
                                             />
                                

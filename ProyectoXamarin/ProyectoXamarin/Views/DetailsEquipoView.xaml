@@ -4,10 +4,13 @@
              x:Class="ProyectoXamarin.Views.DetailsEquipoView">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{Binding Nombre}"
+            <Label Text="{Binding Equipo.Nombre}"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Image Source="{}"/>
+                HorizontalOptions="CenterAndExpand" 
+                   FontSize="25"/>
+            <Image Source="{Binding Equipo.Foto}"
+                   WidthRequest="150"
+                   HeightRequest="150"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

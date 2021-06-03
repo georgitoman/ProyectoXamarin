@@ -12,7 +12,7 @@
                 VerticalOptions="Start" 
                 HorizontalOptions="CenterAndExpand" />
             <ListView ItemsSource="{Binding Equipos}"
-                      x:Name="listviewequipo"
+                      x:Name="listviewequipos"
                       HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>

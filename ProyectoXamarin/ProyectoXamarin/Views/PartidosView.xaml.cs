@@ -15,6 +15,14 @@ namespace ProyectoXamarin.Views
         public PartidosView()
         {
             InitializeComponent();
+            this.listviewpartidos.ItemSelected += ListViewPartidos_ItemSelected;
+        }
+
+        private void ListViewPartidos_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem == null) return;
+
+            if (sender is ListView lv) lv.SelectedItem = null;
         }
     }
 }

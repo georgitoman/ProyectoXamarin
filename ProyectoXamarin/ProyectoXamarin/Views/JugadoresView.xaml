@@ -11,12 +11,19 @@
             <Label Text="Jugadores" FontSize="40"
                 VerticalOptions="Start" 
                 HorizontalOptions="CenterAndExpand" />
-            <ListView ItemsSource="{Binding Jugadores}">
+            <ListView ItemsSource="{Binding Jugadores}"
+                      HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal">
-                                
+                            
+                                <StackLayout Orientation="Vertical" Padding="10">
+                                    <!--<Label Text="Prueba"
+                                           Grid.Column="0"
+                                           Grid.Row="0"/>-->
+                                    <Image Source="{Binding Foto}" 
+                                           HeightRequest="150"
+                                           WidthRequest="150"/>
                                     <Button Text="{Binding Nombre}"
                                             CommandParameter="{Binding .}"
                                             Command="{Binding BindingContext.DetallesJugador,Source={x:Reference PageJugadoresView}}"
